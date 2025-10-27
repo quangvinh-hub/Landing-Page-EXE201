@@ -1,0 +1,101 @@
+Thiết Kế Lõi Sản Phẩm TryBes: Học Nghề Qua Dự Án Gamified
+Tài liệu này định nghĩa mô hình hoạt động cốt lõi của TryBes, kết hợp nền tảng gamified, nội dung thực tế và sự cố vấn con người để tạo ra một trải nghiệm thực tập ảo độc đáo.
+1. Tầm Nhìn Cốt Lõi
+Biến việc định hướng và trải nghiệm nghề nghiệp thành một hành trình phiêu lưu có định hướng, nơi học sinh (Gen Alpha) không chỉ "học" về một ngành nghề, mà còn được "sống" trong vai trò đó thông qua các dự án thực tế, dưới sự dẫn dắt trực tiếp của các Thủ Lĩnh (Gen Z).
+2. Giai Đoạn 0: Khám Phá & Định Hướng (Onboarding & Discovery)
+Đây là giai đoạn khởi động, giúp học sinh tự khám phá bản thân và có kiến thức nền tảng về các lĩnh vực nghề nghiệp trước khi gặp Mentor.
+Bước 0.1: Trắc Nghiệm "Dấu Ấn Năng Lực"
+●Mục tiêu: Giúp học sinh khám phá điểm mạnh, sở thích và cá tính của bản thân thông qua một bài trắc nghiệm ngắn, vui vẻ (dựa trên các mô hình như Holland Codes hoặc MBTI được đơn giản hóa).
+●Trên App: Học sinh trả lời các câu hỏi tình huống ("Khi gặp một thử thách, bạn sẽ..."), và nhận được một "Hồ Sơ Năng Lực" ban đầu, gợi ý các nhóm ngành nghề phù hợp.
+Bước 0.2: Khám Phá "Bản Đồ Thế Giới"
+●Mục tiêu: Học sinh tự do khám phá các "Vùng Đất Nghề Nghiệp" (Marketing, Lập Trình, Thiết Kế...) dựa trên kết quả trắc nghiệm hoặc sự tò mò cá nhân.
+●Trên App: Mỗi vùng đất là một khu vực tương tác, học sinh có thể bấm vào để xem thông tin tổng quan.
+Bước 0.3: Hành Trình Khai Sáng với "AI TryBes"
+●Mục tiêu: Cung cấp kiến thức nền tảng một cách chủ động và thú vị.
+●Trên App: Sau khi chọn một vùng đất, học sinh sẽ bắt đầu một chuỗi nhiệm vụ học tập nhỏ.
+○Trợ lý AI "Trybie": Sẽ đóng vai trò là người bạn đồng hành, cung cấp tài liệu (video ngắn, infographic, text đơn giản) và đưa ra các câu đố vui để kiểm tra kiến thức.
+○Tương tác: Học sinh có thể hỏi đáp trực tiếp với AI Trybie về các khái niệm cơ bản trong ngành. ("AI Trybie ơi, 'brief' là gì?").
+○Mục đích: Đảm bảo tất cả học sinh đều có một kiến thức nền chung trước khi bước vào buổi họp Kick-off, giúp buổi họp hiệu quả hơn.
+Sau khi tìm hiểu thì random quiz ngắn 5 câu, pass ⅘ thì qua giai đoạn sau.
+Bước 0.4: Lựa Chọn "Hành Trình" & Đăng Ký Thủ Lĩnh
+●Mục tiêu: Chuyển đổi từ người dùng miễn phí sang trả phí bằng cách chọn một dự án và Mentor cụ thể.
+●Trên App:
+○Sau khi hoàn thành phần học với AI, học sinh sẽ được giới thiệu các "Hành Trình Sắp Khởi Hành" (các dự án trả phí sắp bắt đầu) thuộc lĩnh vực các em vừa tìm hiểu.
+○Mỗi "Hành Trình" sẽ hiển thị rõ:
+■Thông tin Thủ Lĩnh (Mentor): Profile, kinh nghiệm, video giới thiệu ngắn.
+■Chi tiết Dự Án: Tên dự án, mục tiêu, kỹ năng sẽ học được.
+■Lịch trình: Thời gian diễn ra các buổi họp online.
+■Chi phí: Mức phí để tham gia toàn bộ dự án.
+○Học sinh chọn "Hành Trình" phù hợp và tiến hành thanh toán để chính thức ghi danh và được thêm vào "Bộ Lạc" (nhóm chat của dự án).
+________________ (NOTE)
+Ngã Rẽ Hành Trình: Lựa Chọn Con Đường
+Sau khi hoàn thành giai đoạn khám phá, học sinh sẽ đứng trước hai lựa chọn:
+Lựa Chọn 1: Tham Gia "Hành Trình" Có Phí (Trải Nghiệm Cao Cấp)
+●Mô tả: Đây là luồng chính của sản phẩm. Học sinh sẽ được giới thiệu các "Hành Trình Sắp Khởi Hành" (dự án trả phí) với thông tin chi tiết về Thủ Lĩnh (Mentor), dự án, lịch trình và chi phí.
+●Hành động: Học sinh tiến hành thanh toán để ghi danh, gia nhập "Bộ Lạc" và bước vào "Vòng Lặp Dự Án" được mô tả ở mục 4.
+Lựa Chọn 2: Khám Phá "Vùng Đất Tự Do" (Trải Nghiệm Miễn Phí)
+●Mục tiêu: Giữ chân người dùng chưa sẵn sàng trả phí, xây dựng một cộng đồng sôi nổi, và tạo ra giá trị liên tục để khuyến khích họ nâng cấp.
+●Các Hoạt Động Chính Cho Người Dùng Miễn Phí:
+○Thử Thách Cộng Đồng Hàng Tuần: Tham gia các nhiệm vụ nhỏ, vui, không có mentor, được lấy cảm hứng từ các dự án thực tế. Ví dụ: "Trong 3 ngày, hãy nghĩ ra một cái tên cho thương hiệu nước ép trái cây."
+○Bình Chọn & Học Hỏi Chéo: Các bài nộp sẽ được cộng đồng bình chọn. Top 3 bài có lượt vote cao nhất sẽ được vinh danh trên "Bảng Vàng" của bộ lạc. Đây là cơ hội để học hỏi từ sản phẩm của nhau.
+○Thư Viện Kiến Thức Mở Rộng: Tiếp tục học các module kiến thức chuyên sâu hơn với AI Trybie để tích lũy "Điểm Tri Thức".
+○Xây Dựng Portfolio Cơ Bản: Các sản phẩm từ "Thử Thách Cộng Đồng" vẫn sẽ được lưu vào portfolio cá nhân, nhưng sẽ được đánh dấu là "Sản phẩm cộng đồng" (chưa được mentor xác thực).
+●Cơ Chế Chuyển Đổi:
+○App sẽ liên tục gợi ý các "Hành Trình" trả phí liên quan đến kỹ năng mà học sinh đang rèn luyện. Ví dụ: "Bạn làm rất tốt Thử thách Sáng tạo Tên! Sẵn sàng nâng tầm kỹ năng với Dự án Xây dựng Thương hiệu cùng Mentor A chưa?"
+_____________________________
+Vòng Lặp Dịch Vụ Cao Cấp Của TryBes: Một "Hành Trình" Hoàn Chỉnh
+Đây là mô tả chi tiết về chu trình trải nghiệm cao cấp dành cho người dùng trả phí. Vòng lặp này là cốt lõi tạo ra giá trị của sản phẩm: sự kết hợp giữa công nghệ, nội dung thực tế và cố vấn con người. Một "Hành Trình" thường kéo dài 2-4 tuần.
+Giai Đoạn 1: Chuẩn Bị Khởi Hành (Tuần 0)
+Mục tiêu: Tạo sự hào hứng và kết nối ban đầu cho "Bộ Lạc" trước khi dự án chính thức bắt đầu.
+Bước 1: Gia Nhập "Bộ Lạc"
+●Hành Động Của Học Sinh: Ngay sau khi thanh toán thành công, học sinh nhận được "vé mời" gia nhập một không gian riêng cho dự án. Các em sẽ vào "Lửa Trại Bộ Lạc" (kênh chat riêng) và gửi lời chào, tự giới thiệu bản thân.
+●Tương Tác Của Mentor: Mentor gửi một tin nhắn chào mừng chung cho cả nhóm, giới thiệu bản thân và thông báo về lịch trình của buổi Kick-off.
+●Hiển Thị Trên App: Một tab "Dự Án" mới xuất hiện trên dashboard. Bên trong là kênh chat riêng và một đồng hồ đếm ngược tới buổi họp đầu tiên.
+Bước 2: Nhiệm Vụ "Phá Băng"
+●Hành Động Của Học Sinh: Hoàn thành một nhiệm vụ nhỏ, vui vẻ do Mentor đưa ra trong kênh chat, ví dụ: "Hãy chia sẻ về một sản phẩm bạn thấy rất sáng tạo gần đây và tại sao."
+●Tương Tác Của Mentor: Tương tác, thả icon và bình luận về các chia sẻ của học sinh để tạo không khí thân thiện.
+●Hiển Thị Trên App: Nhiệm vụ hiển thị dưới dạng tin nhắn ghim trong kênh chat.
+●Mục Tiêu: Giúp các thành viên làm quen với nhau và với Mentor, giảm bớt sự bỡ ngỡ trong buổi họp đầu tiên.
+Giai Đoạn 2: Bắt Đầu Hành Trình (Tuần 1)
+Mục tiêu: Thiết lập nền tảng, làm rõ mục tiêu và giúp học sinh có được "chiến thắng" đầu tiên.
+Bước 3: Buổi Họp Khởi Động (Kick-off Meeting)
+●Hành Động Của Học Sinh: Tham gia buổi họp online face-to-face, lắng nghe Mentor trình bày về brief dự án (bài toán thực tế), gặp gỡ và trao đổi với các đồng đội.
+●Tương Tác Của Mentor: Dẫn dắt buổi họp, giải thích bối cảnh và mục tiêu của dự án, trả lời các câu hỏi, và truyền cảm hứng cho cả nhóm.
+●Hiển Thị Trên App: Sau buổi họp, toàn bộ "Bản Đồ Hành Trình" (danh sách các task của dự án) và file brief chi tiết được mở khóa.
+●Mục Tiêu: Đảm bảo mọi người hiểu rõ mục tiêu chung và vai trò của mình. Tạo sự kết nối con người mạnh mẽ.
+Bước 4: Chinh Phục Thử Thách Đầu Tiên
+●Hành Động Của Học Sinh: Dựa trên brief, các em bắt tay vào thực hiện task đầu tiên trên "Bản Đồ Hành Trình" và nộp sản phẩm qua app.
+●Tương Tác Của Mentor: Theo dõi tiến độ và gửi lại phản hồi chi tiết (dưới dạng văn bản hoặc video ngắn) cho sản phẩm đầu tay của học sinh.
+●Hiển Thị Trên App: Học sinh upload file, Mentor nhận được thông báo. Sau khi Mentor chấm, học sinh nhận được thông báo phản hồi kèm theo điểm XP và Tinh Thể.
+●Mục Tiêu: Giúp học sinh làm quen với quy trình làm việc trên app và nhận được giá trị tức thì từ sự góp ý của chuyên gia.
+Giai Đoạn 3: Vượt Thử Thách (Tuần 2-3)
+Mục tiêu: Đẩy sâu vào chuyên môn, rèn luyện kỹ năng qua các vòng lặp công việc và giải quyết vấn đề.
+Bước 5: Vòng Lặp "Task -> Nộp -> Phản Hồi"
+●Hành Động Của Học Sinh: Tiếp tục thực hiện các task tiếp theo trên "Bản Đồ Hành Trình". Tích cực trao đổi với đồng đội trong kênh chat để giải quyết các vấn đề chung.
+●Tương Tác Của Mentor: Cung cấp phản hồi đều đặn cho các task được nộp. Luôn sẵn sàng trả lời các câu hỏi được tag trong kênh chat.
+●Hiển Thị Trên App: "Bản Đồ Hành Trình" được cập nhật liên tục, thể hiện rõ tiến độ của từng cá nhân và cả nhóm.
+●Mục Tiêu: Rèn luyện kỹ năng chuyên môn và kỹ năng làm việc nhóm một cách nhất quán.
+Bước 6: Họp "Stand-up" Hàng Tuần
+●Hành Động Của Học Sinh: Tham gia buổi họp online ngắn (15-20 phút), báo cáo nhanh tiến độ và các khó khăn đang gặp phải.
+●Tương Tác Của Mentor: Lắng nghe, gỡ rối cho các vấn đề, và điều phối lại công việc nếu cần thiết để đảm bảo cả nhóm đi đúng hướng.
+●Hiển Thị Trên App: Lịch họp được hiển thị rõ ràng, có thông báo nhắc nhở trước buổi họp.
+●Mục Tiêu: Duy trì động lực, giải quyết nhanh các "điểm nghẽn" và tăng cường tinh thần trách nhiệm.
+Giai Đoạn 4: Cán Đích & Nhìn Lại (Tuần Cuối)
+Mục tiêu: Hoàn thiện sản phẩm, tổng kết bài học và ghi nhận thành quả.
+Bước 7: Nộp Sản Phẩm Cuối Cùng
+●Hành Động Của Học Sinh: Tổng hợp tất cả các phần việc đã làm để hoàn thiện sản phẩm cuối cùng của dự án và nộp lên hệ thống.
+●Tương Tác Của Mentor: Đánh giá tổng thể sản phẩm cuối cùng dựa trên các tiêu chí đã đề ra trong brief.
+●Hiển Thị Trên App: Có một khu vực đặc biệt để nộp sản phẩm cuối cùng.
+●Mục Tiêu: Tạo ra một sản phẩm hữu hình, là thành quả của cả quá trình nỗ lực.
+Bước 8: Buổi Họp Báo Cáo & Nhìn Lại (Retrospective)
+●Hành Động Của Học Sinh: Tham gia buổi họp cuối cùng, có thể trình bày ngắn về sản phẩm của mình, và chia sẻ những điều đã học được.
+●Tương Tác Của Mentor: Đưa ra nhận xét tổng kết cho cả nhóm, công nhận nỗ lực của từng cá nhân, và trao các huy hiệu thành tích.
+●Hiển Thị Trên App: Lịch họp cuối cùng.
+●Mục Tiêu: Giúp học sinh hệ thống hóa kiến thức và cảm thấy tự hào về những gì đã đạt được.
+Bước 9: Cập Nhật "Hồ Sơ Năng Lực"
+●Hành Động Của Học Sinh: Nhận thông báo và xem "Hồ Sơ Năng Lực" (Portfolio) của mình đã được cập nhật.
+●Tương Tác Của Mentor: Xác thực các kỹ năng và dự án đã hoàn thành trên hồ sơ của học sinh.
+●Hiển Thị Trên App: Một animation chúc mừng hiện ra. Dự án vừa hoàn thành, các huy hiệu và kỹ năng mới được thêm vào portfolio với dấu "Đã xác thực bởi Mentor". App sẽ gợi ý các "Hành Trình" tiếp theo để học sinh tiếp tục phát triển.
+●Mục Tiêu: Cung cấp một tài sản giá trị (portfolio đã được xác thực) và thúc đẩy người dùng tiếp tục
+
+

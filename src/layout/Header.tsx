@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logoden2.png";
 
 const navItems = [
@@ -8,50 +9,57 @@ const navItems = [
   { id: "how-it-works", label: "Cách hoạt động" },
   { id: "testimonials", label: "Đánh giá" },
   { id: "projects", label: "Hành trình" },
+  { id: "about", label: "Về chúng tôi", isRoute: true, path: "/about" },
 ];
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Track scroll and active section
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Find active section
-      const sections = navItems
-        .map((item) => {
-          const section = document.getElementById(item.id);
-          if (section) {
-            return {
-              id: item.id,
-              offset: section.offsetTop - 100,
-              height: section.offsetHeight,
-            };
-          }
-          return null;
-        })
-        .filter(Boolean);
+      // Only track sections on home page
+      if (location.pathname === "/") {
+        // Find active section
+        const sections = navItems
+          .filter((item) => !item.isRoute) // Only track non-route items
+          .map((item) => {
+            const section = document.getElementById(item.id);
+            if (section) {
+              return {
+                id: item.id,
+                offset: section.offsetTop - 100,
+                height: section.offsetHeight,
+              };
+            }
+            return null;
+          })
+          .filter(Boolean);
 
-      const currentPosition = window.scrollY;
-      const active = sections.find(
-        (section) =>
-          section &&
-          currentPosition >= section.offset &&
-          currentPosition < section.offset + section.height
-      );
+        const currentPosition = window.scrollY;
+        const active = sections.find(
+          (section) =>
+            section &&
+            currentPosition >= section.offset &&
+            currentPosition < section.offset + section.height
+        );
 
-      if (active) {
-        setActiveSection(active.id);
+        if (active) {
+          setActiveSection(active.id);
+        }
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -64,18 +72,39 @@ const Header: React.FC = () => {
 
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80; // Header height offset
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
     setIsMenuOpen(false);
+
+    // If not on home page, navigate to home first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation and DOM to update before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offset = 80; // Header height offset
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offset = 80; // Header height offset
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
   };
 
   return (
@@ -83,15 +112,17 @@ const Header: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isMenuOpen
-          ? "bg-white/85 backdrop-blur-xl shadow-lg"
-          : scrolled
-          ? "bg-white/60 backdrop-blur-xl shadow-md"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 px-4 py-4"
     >
-      <nav className="max-w-7xl mx-auto px-6 py-3">
+      <nav
+        className={`max-w-7xl mx-auto px-8 py-4 rounded-full transition-all duration-500 border ${
+          isMenuOpen
+            ? "bg-white/95 backdrop-blur-xl shadow-lg border-gray-200"
+            : scrolled
+            ? "bg-white/90 backdrop-blur-xl shadow-md border-gray-200"
+            : "bg-white/80 backdrop-blur-md border-gray-200"
+        }`}
+      >
         <div className="flex items-center justify-between">
           {/* Logo - Left */}
           <motion.div
@@ -114,12 +145,19 @@ const Header: React.FC = () => {
             </button>
           </motion.div>
 
-          {/* Desktop Nav - Center */}
-          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
+          {/* Desktop Nav - Right aligned */}
+          <div className="hidden md:flex items-center gap-6 flex-1 justify-end">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => {
+                  if (item.isRoute && item.path) {
+                    navigate(item.path);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    scrollToSection(item.id);
+                  }
+                }}
                 className="group relative px-1 py-2"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -129,7 +167,10 @@ const Header: React.FC = () => {
               >
                 <span
                   className={`relative z-10 text-sm font-medium transition-all duration-300 ${
-                    activeSection === item.id
+                    (item.isRoute && location.pathname === item.path) ||
+                    (!item.isRoute &&
+                      location.pathname === "/" &&
+                      activeSection === item.id)
                       ? "text-[#6B5CF6] font-semibold"
                       : "text-gray-700 group-hover:text-[#6B5CF6]"
                   }`}
@@ -140,7 +181,13 @@ const Header: React.FC = () => {
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-[#6B5CF6]"
                   initial={{ scaleX: 0 }}
                   animate={{
-                    scaleX: activeSection === item.id ? 1 : 0,
+                    scaleX:
+                      (item.isRoute && location.pathname === item.path) ||
+                      (!item.isRoute &&
+                        location.pathname === "/" &&
+                        activeSection === item.id)
+                        ? 1
+                        : 0,
                   }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
@@ -150,16 +197,16 @@ const Header: React.FC = () => {
             ))}
           </div>
 
-          {/* Desktop Actions - Right */}
+          {/* Desktop CTA Button - Right */}
           <motion.div
-            className="hidden md:flex items-center gap-3 shrink-0"
+            className="hidden md:flex items-center gap-3 shrink-0 ml-4"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <motion.button
               onClick={() => scrollToSection("cta")}
-              className="bg-[#6B5CF6] hover:bg-[#5A4DD5] text-white px-5 py-2 rounded-md text-sm font-medium"
+              className="bg-[#6B5CF6] hover:bg-[#5A4DD5] text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-purple-500/20"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 10px 25px rgba(107, 92, 246, 0.3)",
@@ -213,16 +260,26 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden fixed left-0 right-0 bg-white border-t border-gray-200 shadow-xl overflow-hidden"
-              style={{ top: "calc(100%)" }}
+              className="md:hidden mt-4 bg-white/95 backdrop-blur-md rounded-3xl border border-gray-200 shadow-xl overflow-hidden"
             >
               <div className="px-6 py-4 space-y-1">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => {
+                      if (item.isRoute && item.path) {
+                        navigate(item.path);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        setIsMenuOpen(false);
+                      } else {
+                        scrollToSection(item.id);
+                      }
+                    }}
                     className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium ${
-                      activeSection === item.id
+                      (item.isRoute && location.pathname === item.path) ||
+                      (!item.isRoute &&
+                        location.pathname === "/" &&
+                        activeSection === item.id)
                         ? "text-[#6B5CF6] bg-purple-50 font-semibold"
                         : "text-gray-700 hover:text-[#6B5CF6] hover:bg-gray-50"
                     }`}
